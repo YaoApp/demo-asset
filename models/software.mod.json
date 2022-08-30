@@ -1,0 +1,20 @@
+{
+  "name": "software",
+  "table": { "name": "software", "comment": "软件" },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID", "comment": "ID" },
+    { "label": "资产ID", "name": "asset_id", "type": "integer", "index": true },
+    { "label": "名称", "name": "name", "type": "string", "index": true }
+  ],
+  "indexes": [
+    {
+      "name": "asset_id_name_unique",
+      "type": "unique",
+      "columns": ["asset_id", "name"]
+    }
+  ],
+  "values": [
+    { "asset_id": 1, "name": "Windows 操作系统" },
+    { "asset_id": 1, "name": "Offset 办公套件" }
+  ]
+}

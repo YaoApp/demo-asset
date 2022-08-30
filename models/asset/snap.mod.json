@@ -1,0 +1,10 @@
+{
+  "name": "Snap",
+  "table": { "name": "snap", "comment": "Snap" },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID", "comment": "ID" },
+    { "label": "资产ID", "name": "asset_id", "type": "integer", "index": true },
+    { "label": "数据", "name": "data", "type": "json" }
+  ],
+  "values": []
+}

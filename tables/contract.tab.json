@@ -1,0 +1,57 @@
+{
+  "name": "合同",
+  "version": "1.0.0",
+  "decription": "合同管理",
+  "bind": { "model": "contract" },
+  "apis": {},
+  "columns": {
+    "附件": {
+      "label": "附件",
+      "view": { "type": "label", "props": { "value": ":file" } },
+      "edit": {
+        "type": "upload",
+        "props": {
+          "value": ":file",
+          "filetype": "file",
+          "multiple": true,
+          "maxCount": 9
+        }
+      }
+    }
+  },
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "名称", "width": 160 }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "pagination": { "props": { "showTotal": true } },
+      "create": {
+        "type": "button",
+        "props": { "label": "添加合同", "icon": "fas fa-plus" }
+      }
+    },
+    "option": { "operation": { "unfold": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            { "name": "名称", "width": 24 },
+            { "name": "附件", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": {} }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "label": "软件列表配置",
+  "version": "1.0.0",
+  "description": "软件列表配置",
+  "nodes": [],
+  "output": {
+    "name": "软件列表",
+    "columns": {
+      "名称": {
+        "label": "名称",
+        "edit": {
+          "type": "input",
+          "props": {
+            "value": ":name",
+            "placeholder": "请输入软件名称"
+          }
+        }
+      }
+    },
+    "list": {
+      "primary": "id",
+      "layout": {
+        "columns": [{ "name": "名称", "width": 24 }]
+      }
+    }
+  }
+}

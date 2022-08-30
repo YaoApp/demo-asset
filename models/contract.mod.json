@@ -1,0 +1,26 @@
+{
+  "name": "Contract",
+  "table": { "name": "contract", "comment": "contract" },
+  "columns": [
+    { "label": "ID", "name": "id", "type": "ID", "comment": "ID" },
+    {
+      "label": "SN",
+      "name": "sn",
+      "type": "string",
+      "nullable": true,
+      "unique": true
+    },
+    { "label": "名称", "name": "name", "type": "string", "index": true },
+    { "label": "文件", "name": "file", "type": "json", "nullable": true }
+  ],
+  "relations": {
+    "asset": {
+      "type": "hasOne",
+      "model": "asset",
+      "key": "id",
+      "foreign": "asset_id",
+      "query": {}
+    }
+  },
+  "values": [{ "sn": "1001", "name": "办公电脑合同" }]
+}

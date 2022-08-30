@@ -1,0 +1,14 @@
+{
+  "name": "资产管理系统",
+  "short": "资产管理",
+  "description": "资产管理 Demo",
+  "option": {
+    "nav_user": "xiang.user",
+    "nav_menu": "xiang.menu",
+    "hide_user": false,
+    "hide_menu": false,
+    "login": {
+      "entry": { "admin": "/table/asset" }
+    }
+  }
+}

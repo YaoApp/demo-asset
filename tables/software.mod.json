@@ -1,0 +1,30 @@
+{
+  "name": "软件",
+  "version": "1.0.0",
+  "decription": "软件",
+  "bind": { "model": "software" },
+  "apis": {},
+  "columns": {},
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "名称", "width": 100 }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": { "pagination": { "props": { "showTotal": true } } },
+    "option": { "operation": { "unfold": true, "hideEdit": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [{ "columns": [{ "name": "名称", "width": 24 }] }]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": {} }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "配置接口",
+  "version": "1.0.0",
+  "description": "配置接口",
+  "group": "xiang/setting",
+  "guard": "-",
+  "paths": [
+    {
+      "path": "/software",
+      "method": "GET",
+      "process": "flows.setting.software",
+      "out": { "status": 200, "type": "application/json" }
+    }
+  ]
+}

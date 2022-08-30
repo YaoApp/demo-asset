@@ -1,0 +1,50 @@
+{
+  "title": "导入资产",
+  "process": "scripts.imports.run.Asset",
+  "columns": [
+    {
+      "label": "编号",
+      "name": "sn",
+      "match": ["编号", "SN"],
+      "rules": ["scripts.imports.validate.Require"]
+    },
+    {
+      "label": "资产",
+      "name": "asset_id",
+      "match": ["资产"],
+      "rules": ["scripts.imports.getter.Asset"]
+    },
+    {
+      "label": "软件",
+      "name": "software",
+      "match": ["软件"],
+      "rules": [
+        "scripts.imports.validate.Require",
+        "scripts.imports.getter.Software"
+      ]
+    },
+    {
+      "label": "合同",
+      "name": "contract",
+      "match": ["合同"],
+      "rules": [
+        "scripts.imports.validate.Require",
+        "scripts.imports.getter.Contract"
+      ]
+    }
+  ],
+  "option": {
+    "autoMatching": true,
+    "chunkSize": 20,
+    "logging": "error",
+    "mappingPreview": "auto",
+    "dataPreview": "auto",
+    "templateLink": "/somelinke/download/xxx"
+  },
+  "rules": {
+    "scripts.imports.validate.Require": "必填项验证",
+    "scripts.imports.getter.RFID": "资产转换",
+    "scripts.imports.getter.Node": "软件转换",
+    "scripts.imports.getter.Contract": "合同转换"
+  }
+}

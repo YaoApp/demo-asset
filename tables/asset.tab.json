@@ -1,0 +1,132 @@
+{
+  "name": "资产",
+  "version": "1.0.0",
+  "decription": "资产管理",
+  "bind": { "model": "asset", "withs": { "contract": {}, "software": {} } },
+  "apis": { "save": { "process": "scripts.asset.Save" } },
+  "hooks": {
+    "after:find": "scripts.asset.AfterFind",
+    "before:save": "scripts.asset.BeforeSave"
+  },
+  "columns": {
+    "ID": {
+      "label": "ID",
+      "view": { "type": "label", "props": { "value": ":id" } }
+    },
+    "SN": {
+      "label": "SN",
+      "view": { "type": "label", "props": { "value": ":sn" } },
+      "edit": { "type": "input", "props": { "value": ":sn" } }
+    },
+    "Name": {
+      "label": "Name",
+      "view": { "type": "label", "props": { "value": ":name" } },
+      "edit": { "type": "input", "props": { "value": ":name" } }
+    },
+    "附件": {
+      "label": "附件",
+      "view": { "type": "label", "props": { "value": ":file" } },
+      "edit": {
+        "type": "upload",
+        "props": {
+          "value": ":file",
+          "filetype": "file",
+          "multiple": true,
+          "maxCount": 9
+        }
+      }
+    },
+    "合同": {
+      "label": "合同",
+      "view": { "type": "label", "props": { "value": ":contract.name" } },
+      "edit": {
+        "type": "select",
+        "props": {
+          "bind": "contract.name",
+          "value": ":contract_id",
+          "showSearch": true,
+          "useValue": true,
+          "remote": {
+            "api": "/api/xiang/table/contract/select",
+            "query": { "select": ["name", "id"], "limit": 20 }
+          },
+          "search": {
+            "api": "/api/xiang/table/contract/select",
+            "query": { "select": ["name", "id"], "limit": 20 },
+            "key": "keyword"
+          }
+        }
+      }
+    },
+    "软件": {
+      "label": "软件",
+      "edit": {
+        "type": "dynamicList",
+        "props": {
+          "setting": "software",
+          "value": ":software_items",
+          "query": { "sort": "$index" }
+        }
+      }
+    }
+  },
+  "filters": {
+    "Keywords": { "@": "f.Keywords", "in": ["where.name.match"] }
+  },
+  "list": {
+    "primary": "id",
+    "layout": {
+      "columns": [
+        { "name": "ID", "width": 80 },
+        { "name": "SN", "width": 100 },
+        { "name": "Name", "width": 200 }
+      ],
+      "filters": [{ "name": "Keywords" }]
+    },
+    "actions": {
+      "pagination": { "props": { "showTotal": true } },
+      "create": {
+        "type": "button",
+        "props": { "label": "添加资产", "icon": "fas fa-plus" }
+      },
+      "import": {
+        "props": {
+          "api": {
+            "setting": "/api/xiang/import/asset/setting",
+            "mapping": "/api/xiang/import/asset/mapping",
+            "mapping_setting": "/api/xiang/import/asset/mapping/setting",
+            "preview": "/api/xiang/import/asset/data",
+            "preview_setting": "/api/xiang/import/asset/data/setting",
+            "import": "/api/xiang/import/asset"
+          }
+        }
+      }
+    },
+    "option": { "operation": { "unfold": true } }
+  },
+  "edit": {
+    "primary": "id",
+    "layout": {
+      "fieldset": [
+        {
+          "columns": [
+            {
+              "name": "SN",
+              "width": 6,
+              "rules": [{ "required": true, "message": "编码必须填写" }]
+            },
+            {
+              "name": "Name",
+              "width": 9,
+              "rules": [{ "required": true, "message": "名称必须填写" }]
+            },
+            { "name": "合同", "width": 9 },
+            { "name": "软件", "width": 24 },
+            { "name": "附件", "width": 24 }
+          ]
+        }
+      ]
+    },
+    "actions": { "cancel": {}, "save": {}, "delete": {} }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "label": "System Menu",
+  "version": "1.0.0",
+  "description": "Initialize system menu",
+  "nodes": [
+    {
+      "name": "Clean menu data",
+      "engine": "xiang",
+      "query": {
+        "sql": { "stmt": "delete from xiang_menu" }
+      }
+    },
+    {
+      "name": "资产",
+      "process": "models.xiang.menu.Save",
+      "args": [
+        {
+          "name": "资产",
+          "path": "/table/asset",
+          "icon": "icon-database",
+          "rank": 1,
+          "status": "enabled",
+          "visible_menu": 0,
+          "blocks": 0
+        }
+      ]
+    },
+    {
+      "name": "合同",
+      "process": "models.xiang.menu.Save",
+      "args": [
+        {
+          "name": "合同",
+          "path": "/table/contract",
+          "icon": "icon-file-text",
+          "rank": 2,
+          "status": "enabled",
+          "visible_menu": 0,
+          "blocks": 0
+        }
+      ]
+    },
+    {
+      "name": "软件",
+      "process": "models.xiang.menu.Save",
+      "args": [
+        {
+          "name": "软件",
+          "path": "/table/software",
+          "icon": "icon-package",
+          "rank": 3,
+          "status": "enabled",
+          "visible_menu": 0,
+          "blocks": 0
+        }
+      ]
+    }
+  ],
+  "output": "done"
+}
