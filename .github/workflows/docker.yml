@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths:
       - "app.json"
-        ".github/workflows/docker.yml"
+      - ".github/workflows/docker.yml"
 env:
   IMAGE_ORG: yaoapp
   IMAGE_NAME: ${{ github.event.repository.name }}
