@@ -5,8 +5,10 @@ on:
       tags:
         description: "Comment"
   push:
-    branches: [main]
-    paths: ["app.json", ".github/workflows/docker.yml"]
+    branches: [main, master]
+    paths:
+      - "app.json"
+      - ".github/workflows/docker.yml"
 env:
   IMAGE_ORG: yaoapp
   IMAGE_NAME: ${{ github.event.repository.name }}
