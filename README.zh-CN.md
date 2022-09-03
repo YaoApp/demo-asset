@@ -1,7 +1,5 @@
 # 资产管理系统(示例)
 
-## 介绍
-
 ![Image](docs/images/intro.png)
 
 [English](README.md)
@@ -38,7 +36,7 @@ mkdir /app/path/asset/db
 mkdir /app/path/asset/data
 mkdir /app/path/asset/logs
 
-echo <<EOF
+cat << EOF
 YAO_ENV=development # development | production
 YAO_ROOT="/app/path/asset"
 YAO_HOST="0.0.0.0"
