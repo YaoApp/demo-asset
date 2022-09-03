@@ -22,7 +22,7 @@ jobs:
           repository: ${{ env.REPO_DOCKERFILES }}
           path: dockerfiles
 
-       - name: Move Dockerfiles
+      - name: Move Dockerfiles
         run: |
           mv dockerfiles ../
           ls -l .
