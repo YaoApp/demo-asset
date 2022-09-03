@@ -6,11 +6,11 @@
 
 资产管理系统示例应用
 
-Documentation: [https://yaoapps.com/doc](https://yaoapps.com/doc/%E4%BB%8B%E7%BB%8D/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97)
+参考文档: [https://yaoapps.com/doc](https://yaoapps.com/doc/%E4%BB%8B%E7%BB%8D/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97)
 
 ## 下载安装
 
-### 使用 Docker
+### 使用 Docker 运行
 
 ```bash
 docker run -d -p 5099:5099 --restart unless-stopped \
@@ -19,7 +19,7 @@ docker run -d -p 5099:5099 --restart unless-stopped \
     yaoapp/demo-asset:1.0.1-amd64
 ```
 
-### 本地运行
+### 在本地运行
 
 #### 下载源码
 
