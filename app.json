@@ -8,8 +8,6 @@
     "nav_menu": "xiang.menu",
     "hide_user": false,
     "hide_menu": false,
-    "login": {
-      "entry": { "admin": "/table/asset" }
-    }
+    "login": { "entry": { "admin": "/table/asset" } }
   }
 }
